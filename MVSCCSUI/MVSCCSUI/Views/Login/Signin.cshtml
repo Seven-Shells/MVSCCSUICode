@@ -1,0 +1,30 @@
+﻿@model MVSCCSUI.Models.Users
+<div id="page">
+    @Html.Partial("_HeaderMenu")
+    <main class="bg_gray">
+        <div class="container margin_30">
+            <div class="page_header">
+                <h1>Sign In or Create an Account</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-6 col-md-8">
+                    @Html.Partial("_LoginForm")
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-8">
+                    @Html.Partial("_RegistrationForm")
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script>
+    // Client type Panel
+    $('input[name="RegisteredAsPOC"]').on("click", function () {
+        var inputValue = $(this).attr("value");
+        var targetBox = $("." + inputValue);
+
+        if (inputValue == "C") { $("#FullAddress").attr("placeholder", "Full Address"); }
+        else { $("#FullAddress").attr("placeholder", "Full Address*"); }
+        $(".box").not(targetBox).hide();
+        $(targetBox).show();
+    });</script>
